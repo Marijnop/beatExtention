@@ -71,10 +71,10 @@ namespace grf
         else if (target_weight_penalty_metric == "custom.metric")
         {
           // Print debug message to confirm usage
-          Rcpp::Rcout << "Using CUSTOM METRIC\n";
+          //Rcpp::Rcout << "Using CUSTOM METRIC\n";
 
           // Placeholder: Modify this later
-          imbalance = arma::sum(target_weight_avg_left % target_weight_avg_right);
+          imbalance = arma::norm((target_weight_avg_left - target_weight_avg_right), 2);
 
           // You can insert your own function/formula here!
         }
