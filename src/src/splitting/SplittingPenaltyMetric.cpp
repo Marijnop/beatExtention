@@ -65,6 +65,22 @@ namespace grf
             double cosine_similarity = upper / lower; //−1 = exactly opposite, 1 = exactly the same
             imbalance = 1 - cosine_similarity / 2;    // in [0, 1]
         }
+
+
+        // 🔥 Custom metric 🔥
+        else if (target_weight_penalty_metric == "custom.metric")
+        {
+          // Print debug message to confirm usage
+          Rcpp::Rcout << "Using CUSTOM METRIC\n";
+
+          // Placeholder: Modify this later
+          imbalance = arma::sum(target_weight_avg_left % target_weight_avg_right);
+
+          // You can insert your own function/formula here!
+        }
+
+
+
         // ends
         else
         { // the R wrapper function shall have filtered out
